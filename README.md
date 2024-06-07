@@ -36,3 +36,9 @@ Pastikan Anda memiliki perangkat lunak berikut terinstal di sistem Anda:
 ```sh
 git clone https://github.com/username/repository.git
 cd repository
+
+2. Install dependensi untuk backend
+
+```sh
+cd backend
+npm install
