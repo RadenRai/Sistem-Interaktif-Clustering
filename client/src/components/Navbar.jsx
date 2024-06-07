@@ -9,25 +9,22 @@ import {
   MenuItem,
   Button,
   Box,
-  Typography,
   IconButton,
-  InputBase,
 } from "@mui/material";
 import {
   LightModeOutlined,
   DarkModeOutlined,
   Menu as MenuIcon,
-  Search,
-  SettingsOutlined,
   ArrowDropDownOutlined,
-  GitHub,
+  Source,
+  CreateNewFolder,
 } from "@mui/icons-material";
 
 import { FlexBetween } from ".";
-import profileImage from "assets/profile.jpeg";
+import profileImage from "assets/Profile.png";
 
 // Navbar
-const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   // redux dispatch items
   const dispatch = useDispatch();
   // theme
@@ -38,7 +35,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const isOpen = Boolean(anchorEl);
 
   // handle
-  const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
   return (
@@ -59,20 +55,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           >
             <MenuIcon />
           </IconButton>
-
-          {/* Search */}
-          <FlexBetween
-            backgroundColor={theme.palette.background.alt}
-            borderRadius="9px"
-            gap="3rem"
-            p="0.1rem 1.5rem"
-            title="Search"
-          >
-            <InputBase placeholder="Search..." />
-            <IconButton>
-              <Search />
-            </IconButton>
-          </FlexBetween>
         </FlexBetween>
 
         {/* Right Side */}
@@ -81,13 +63,25 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           <IconButton
             onClick={() =>
               window.open(
-                "http://www.github.com/sanidhyy/mern-admin/",
+                "https://nbviewer.org/github/RadenRai/Proyek2/blob/main/Proyek_2_Data_Cleaning.ipynb",
                 "_blank"
               )
             }
-            title="Source Code"
+            title="Data Cleaning"
           >
-            <GitHub sx={{ fontSize: "25px" }} />
+            <Source sx={{ fontSize: "25px" }} />
+          </IconButton>
+
+          <IconButton
+            onClick={() =>
+              window.open(
+                "https://nbviewer.org/github/RadenRai/Proyek2/blob/main/Proyek_2_K-Means.ipynb",
+                "_blank"
+              )
+            }
+            title="K-Means"
+          >
+            <CreateNewFolder sx={{ fontSize: "25px" }} />
           </IconButton>
 
           {/* Dark/Light Mode */}
@@ -99,23 +93,9 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             )}
           </IconButton>
 
-          {/* Settings */}
-          <IconButton title="Setting">
-            <SettingsOutlined sx={{ fontSize: "25px" }} />
-          </IconButton>
-
           {/* User */}
           <FlexBetween>
             <Button
-              onClick={handleClick}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                textTransform: "none",
-                gap: "1rem",
-              }}
-              title={user.name}
             >
               <Box
                 component="img"
@@ -126,21 +106,6 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
-              <Box textAlign="left">
-                <Typography
-                  fontWeight="bold"
-                  fontSize="0.85rem"
-                  sx={{ color: theme.palette.secondary[100] }}
-                >
-                  {user.name}
-                </Typography>
-                <Typography
-                  fontSize="0.75rem"
-                  sx={{ color: theme.palette.secondary[200] }}
-                >
-                  {user.occupation}
-                </Typography>
-              </Box>
               <ArrowDropDownOutlined
                 sx={{
                   color: theme.palette.secondary[300],

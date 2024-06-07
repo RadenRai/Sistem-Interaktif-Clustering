@@ -14,6 +14,8 @@ export const api = createApi({
     "Producs",
     "Customers",
     "Transactions",
+    "Transactionns",
+    "Transactionnns",
     "Geography",
     "Sales",
     "Admins",
@@ -41,6 +43,22 @@ export const api = createApi({
         params: { page, pageSize, sort, search },
       }),
       providesTags: ["Transactions"],
+    }),
+    getTransactionns: build.query({
+      query: ({ page, pageSize, sort, search }) => ({
+        url: "client/transactionns",
+        method: "GET",
+        params: { page, pageSize, sort, search },
+      }),
+      providesTags: ["Transactionns"],
+    }),
+    getTransactionnns: build.query({
+      query: ({ page, pageSize, sort, search }) => ({
+        url: "client/transactionnns",
+        method: "GET",
+        params: { page, pageSize, sort, search },
+      }),
+      providesTags: ["Transactionnns"],
     }),
     getGeography: build.query({
       query: () => "client/geography",
@@ -71,6 +89,8 @@ export const {
   useGetProductsQuery,
   useGetCustomersQuery,
   useGetTransactionsQuery,
+  useGetTransactionnsQuery,
+  useGetTransactionnnsQuery,
   useGetGeographyQuery,
   useGetSalesQuery,
   useGetAdminsQuery,

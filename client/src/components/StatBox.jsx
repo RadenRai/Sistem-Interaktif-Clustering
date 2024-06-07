@@ -4,7 +4,7 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { FlexBetween } from ".";
 
 // Stat Box
-const StatBox = ({ title, value, increase, icon, description }) => {
+const StatBox = ({ title, value, icon, description }) => {
   // theme
   const theme = useTheme();
   return (
@@ -39,15 +39,6 @@ const StatBox = ({ title, value, increase, icon, description }) => {
       </Typography>
 
       <FlexBetween gap="1rem">
-        {/* increase % */}
-        <Typography
-          variant="h5"
-          fontStyle="italic"
-          sx={{ color: theme.palette.light }}
-        >
-          {increase}
-        </Typography>
-
         {/* description */}
         <Typography>{description}</Typography>
       </FlexBetween>

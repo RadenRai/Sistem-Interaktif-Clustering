@@ -1,14 +1,12 @@
 import React from "react";
 import {
-  DownloadOutlined,
-  Email,
-  PointOfSale,
-  PersonAdd,
-  Traffic,
+  LocationCity,
+  People,
+  AccountBalance,
+  HealthAndSafety,
 } from "@mui/icons-material";
 import {
   Box,
-  Button,
   Typography,
   useTheme,
   useMediaQuery,
@@ -20,7 +18,6 @@ import {
   FlexBetween,
   Header,
   BreakdownChart,
-  OverviewChart,
   StatBox,
 } from "components";
 
@@ -37,30 +34,17 @@ const Dashboard = () => {
     {
       field: "_id",
       headerName: "ID",
-      flex: 1,
-    },
-    {
-      field: "userId",
-      headerName: "User ID",
       flex: 0.5,
     },
     {
-      field: "createdAt",
-      headerName: "Created At",
-      flex: 1,
-    },
-    {
-      field: "products",
-      headerName: "# of Products",
+      field: "namaKota",
+      headerName: "Nama Kota",
       flex: 0.5,
-      sortable: false,
-      renderCell: (params) => params.value.length,
     },
     {
-      field: "cost",
-      headerName: "Cost",
-      flex: 1,
-      renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+      field: "namaKelurahan",
+      headerName: "Nama Kelurahan",
+      flex: 0.5,
     },
   ];
 
@@ -69,28 +53,6 @@ const Dashboard = () => {
       <FlexBetween>
         {/* Header */}
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
-        {/* Content */}
-        <Box>
-          {/* Download Reports */}
-          <Button
-            sx={{
-              backgroundColor: theme.palette.secondary.light,
-              color: theme.palette.background.alt,
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-
-              "&:hover": {
-                backgroundColor: theme.palette.background.alt,
-                color: theme.palette.secondary.light,
-              },
-            }}
-          >
-            <DownloadOutlined sx={{ mr: "10px" }} />
-            Download Reports
-          </Button>
-        </Box>
       </FlexBetween>
 
       <Box
@@ -106,73 +68,82 @@ const Dashboard = () => {
         }}
       >
         {/* ROW 1 */}
-        {/* Total Customers */}
+        {/* Total Kota*/}
         <StatBox
-          title="Total Customers"
-          value={data && data.totalCustomers}
-          increase="+14%"
-          description="Since last month"
+          title="Total Kota"
+          value={<div style={{ textAlign: 'center' }}>6</div>}
+          description=""
           icon={
-            <Email
+            <LocationCity
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
             />
           }
         />
 
-        {/* Sales Today */}
+        {/* Total Kelurahan*/}
         <StatBox
-          title="Sales Today"
-          value={data && data.todayStats.totalSales}
-          increase="+21%"
-          description="Since last month"
+          title="Total Kelurahan"
+          value={<div style={{ textAlign: 'center' }}>267</div>}
+          description=""
           icon={
-            <PointOfSale
+            <AccountBalance
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
             />
           }
         />
 
-        {/* Overview Chart */}
-        <Box
-          gridColumn="span 8"
-          gridRow="span 2"
-          backgroundColor={theme.palette.background.alt}
-          p="1rem"
-          borderRadius="0.55rem"
-        >
-          <OverviewChart view="sales" isDashboard={true} />
-        </Box>
-
-        {/* Monthly Sales */}
+        {/* Total Penduduk */}
         <StatBox
-          title="Monthly Sales"
-          value={data && data.thisMonthStats.totalSales}
-          increase="+5%"
-          description="Since last month"
+          title="Total Penduduk"
+          value={<div style={{ textAlign: 'center' }}>10.679.951</div>}
+          description=""
           icon={
-            <PersonAdd
+            <People
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
             />
           }
         />
 
-        {/* Yearly Sales */}
+        {/* Rata-Rata Sembuh Cluster 0*/}
         <StatBox
-          title="Yearly Sales"
-          value={data && data.yearlySalesTotal}
-          increase="+43%"
-          description="Since last month"
+          title="Cluster 0"
+          value={<div style={{ textAlign: 'center' }}>0.20</div>}
+          description="Rata-Rata Sembuh"
           icon={
-            <Traffic
+            <HealthAndSafety
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
+        />
+
+        {/* Rata-Rata Sembuh Cluster 1*/}
+        <StatBox
+          title="Cluster 1"
+          value={<div style={{ textAlign: 'center' }}>0.75</div>}
+          description="Rata-Rata Sembuh"
+          icon={
+            <HealthAndSafety
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
+        />
+
+        {/* Rata-Rata Sembuh Cluster 2*/}
+        <StatBox
+          title="Cluster 2"
+          value={<div style={{ textAlign: 'center' }}>0.44</div>}
+          description="Rata-Rata Sembuh"
+          icon={
+            <HealthAndSafety
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
             />
           }
         />
 
         {/* ROW 2 */}
-        {/* Transactions */}
+        {/* Tabel Hasil Clustering */}
         <Box
-          gridColumn="span 8"
+          gridColumn="span 6"
           gridRow="span 3"
           sx={{
             "& .MuiDataGrid-root": {
@@ -205,31 +176,32 @@ const Dashboard = () => {
             getRowId={(row) => row._id}
             rows={(data && data.transactions) || []}
             columns={columns}
+            rowCount={(data && data.total) || 267}
+            rowsPerPageOptions={[10, 50, 100]}
           />
         </Box>
 
         {/* Sales by Category */}
         <Box
-          gridColumn="span 4"
+          gridColumn="span 6"
           gridRow="span 3"
           backgroundColor={theme.palette.background.alt}
-          p="1.5rem"
+          p="1rem"
           borderRadius="0.55rem"
         >
           <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
-            Sales by Category
+            Grafik Pie Rata-Rata Sembuh Berdasarkan Cluster
           </Typography>
 
           <BreakdownChart isDashboard={true} />
           <Typography
             p="0 0.6rem"
-            fontSize="0.8rem"
+            fontSize="1rem"
             sx={{
               color: theme.palette.secondary[200],
             }}
           >
-            Breakdown of real states and information via category for revenue
-            made for this year and total sales
+            Grafik diatas menunjukkan hasil evaluasi dari metode K-Means untuk menghitung Rata-Rata Sembuh berdasarkan Cluster
           </Typography>
         </Box>
       </Box>

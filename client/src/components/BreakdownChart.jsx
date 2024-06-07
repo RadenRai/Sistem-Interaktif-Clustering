@@ -22,8 +22,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
   const colors = [
     theme.palette.secondary[500],
     theme.palette.secondary[300],
-    theme.palette.secondary[300],
-    theme.palette.secondary[500],
+    theme.palette.secondary[700],
   ];
 
   // formatted data
@@ -87,7 +86,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
             : { top: 40, right: 80, bottom: 80, left: 80 }
         }
         sortByValue={true}
-        innerRadius={0.45}
+        innerRadius={0}
         activeOuterRadiusOffset={8}
         borderWidth={1}
         borderColor={{
@@ -145,7 +144,7 @@ const BreakdownChart = ({ isDashboard = false }) => {
         }}
       >
         <Typography variant="h6">
-          {!isDashboard && "Total:"} ${data.yearlySalesTotal}
+          {!isDashboard && ""} {data.yearlySalesTotal}
         </Typography>
       </Box>
     </Box>

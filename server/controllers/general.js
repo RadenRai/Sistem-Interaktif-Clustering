@@ -36,6 +36,7 @@ export const getDashboardStats = async (_, res) => {
       yearlySalesTotal,
       monthlyData,
       salesByCategory,
+      saalesByCategory,
     } = overallStat[0];
 
     // This month stats
@@ -54,6 +55,7 @@ export const getDashboardStats = async (_, res) => {
       yearlySalesTotal,
       monthlyData,
       salesByCategory,
+      saalesByCategory,
       thisMonthStats,
       todayStats,
       transactions,

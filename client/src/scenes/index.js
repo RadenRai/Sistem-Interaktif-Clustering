@@ -3,29 +3,29 @@
 
 import Layout from "./layout";
 import Dashboard from "./dashboard";
-import Products from "./products";
-import Customers from "./customers";
-import Transactions from "./transactions";
-import Geography from "./geography";
+import FAQ from "./faq";
+import Tabel from "./tabel";
+import IterasiOne from "./iterasi 1";
+import IterasiTwo from "./iterasi 2";
+import IterasiThree from "./iterasi 3";
 import Overview from "./overview";
-import Daily from "./daily";
-import Monthly from "./monthly";
-import Breakdown from "./breakdown";
-import Admin from "./admin";
-import Performance from "./performance";
+import Heatmap from "./heatmap";
+import Bar from "./bar";
+import Pie from "./pie";
+import Donut from "./donut";
 
 // export scenes
 export {
   Layout,
   Dashboard,
-  Products,
-  Customers,
-  Transactions,
-  Geography,
+  FAQ,
+  Tabel,
+  IterasiOne,
+  IterasiTwo,
+  IterasiThree,
   Overview,
-  Daily,
-  Monthly,
-  Breakdown,
-  Admin,
-  Performance,
+  Heatmap,
+  Bar,
+  Pie,
+  Donut,
 };

@@ -25,6 +25,10 @@ const OverallStatSchema = new mongoose.Schema(
       type: Map,
       of: Number,
     },
+    saalesByCategory: {
+      type: Map,
+      of: Number,
+    },
   },
   { timestamps: true }
 );

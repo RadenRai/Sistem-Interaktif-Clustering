@@ -8,7 +8,7 @@ const ProductSchema = new mongoose.Schema(
     description: String,
     category: String,
     rating: Number,
-    supply: Number,
+    supply: String,
   },
   { timestamps: true }
 );

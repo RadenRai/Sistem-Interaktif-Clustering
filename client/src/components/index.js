@@ -2,6 +2,7 @@
 // ! Don't remove anything from here
 
 import BreakdownChart from "./BreakdownChart";
+import BreakdownnChart from "./BreakdownnChart";
 import CustomColumnMenu from "./DataGridCustomColumnMenu";
 import DataGridCustomToolbar from "./DataGridCustomToolbar";
 import FlexBetween from "./FlexBetween";
@@ -14,6 +15,7 @@ import StatBox from "./StatBox";
 // export components
 export {
   BreakdownChart,
+  BreakdownnChart,
   CustomColumnMenu,
   DataGridCustomToolbar,
   FlexBetween,

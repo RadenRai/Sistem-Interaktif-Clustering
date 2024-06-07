@@ -11,16 +11,16 @@ import { themeSettings } from "theme";
 import {
   Layout,
   Dashboard,
-  Products,
-  Customers,
-  Transactions,
-  Geography,
+  FAQ,
+  Tabel,
+  IterasiOne,
+  IterasiTwo,
+  IterasiThree,
   Overview,
-  Daily,
-  Monthly,
-  Breakdown,
-  Admin,
-  Performance,
+  Heatmap,
+  Bar,
+  Pie,
+  Donut,
 } from "scenes";
 
 // App
@@ -41,16 +41,16 @@ const App = () => {
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/customers" element={<Customers />} />
-              <Route path="/transactions" element={<Transactions />} />
-              <Route path="/geography" element={<Geography />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/tabel" element={<Tabel />} />
+              <Route path="/iterasi 1" element={<IterasiOne />} />
+              <Route path="/iterasi 2" element={<IterasiTwo />} />
+              <Route path="/iterasi 3" element={<IterasiThree />} />
               <Route path="/overview" element={<Overview />} />
-              <Route path="/daily" element={<Daily />} />
-              <Route path="/monthly" element={<Monthly />} />
-              <Route path="/breakdown" element={<Breakdown />} />
-              <Route path="/admin" element={<Admin />} />
-              <Route path="/performance" element={<Performance />} />
+              <Route path="/heatmap" element={<Heatmap />} />
+              <Route path="/bar" element={<Bar />} />
+              <Route path="/pie" element={<Pie />} />
+              <Route path="/donut" element={<Donut />} />
             </Route>
           </Routes>
         </ThemeProvider>
