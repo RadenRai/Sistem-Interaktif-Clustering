@@ -28,17 +28,3 @@ Pastikan Anda memiliki perangkat lunak berikut terinstal di sistem Anda:
 
 - Node.js dan npm (https://nodejs.org/)
 - MongoDB (https://www.mongodb.com/)
-
-### Langkah-langkah Instalasi
-
-1. Clone repositori ini ke dalam direktori lokal Anda.
-
-```sh
-git clone https://github.com/username/repository.git
-cd repository
-
-2. Install dependensi untuk backend
-
-```sh
-cd backend
-npm install
